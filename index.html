@@ -15,8 +15,55 @@
 
   <!-- Custom styles for this template -->
   <link href="css/simple-sidebar.css" rel="stylesheet">
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+<script type="text/javascript">
+// Load google charts
+google.charts.load('current', {'packages':['corechart']});
+google.charts.setOnLoadCallback(drawChart);
+
+// Draw the chart and set the chart values
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+  ['Task', 'Attendance'],
+  ['Present', 60],
+  ['Absent', 15],
+  ['Leave', 5],
+  ['Not Taken', 20],
+  
+]);
+
+  // Optional; add a title and set the width and height of the chart
+  var studentChart = {'title':'Students Attendance', 'width':438, 'height':318};
+  var staffChart = {'title':'Staff Attendance', 'width':438, 'height':318};
+
+  // Display the chart inside the <div> element with id="piechart"
+  var studentAttendance = new google.visualization.PieChart(document.getElementById('studentAttendance'));
+  studentAttendance.draw(data, studentChart);
+
+  var staffAttendance = new google.visualization.PieChart(document.getElementById('staffAttendance'));
+  staffAttendance.draw(data, staffChart);
+}
+</script>
+<style>
+  /* Style the buttons */
+  .list-group-item-action {
+    border: none;
+    outline: none;
+    padding: 10px 16px;
+    background-color: #f1f1f1;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  /* Style the active class, and buttons on mouse-over */
+  .active, .list-group-item-action:hover {
+    background-color: #666;
+    color: white;
+  }
+  </style> 
 </head>
+
 
 <body>
 
@@ -25,8 +72,8 @@
     <!-- Sidebar -->
     <div class=" border-right" id="sidebar-wrapper" style="background-color:#012111;">
       <div class="sidebar-heading" style="color: white; font-size: 25px;">Paathsala Poddars </div>
-      <div class="list-group list-group-flush">
-        <a href="#dashboard" class="list-group-item list-group-item-action " style="background-color:#012111; color: white;">Dashboard</a>
+      <div class="list-group list-group-flush" id="myDIV">
+        <a href="#dashboard" class="list-group-item active list-group-item-action " style="background-color:#012111; color: white;">Dashboard</a>
         <a href="#" class="list-group-item list-group-item-action" style="background-color:#012111;color: white;">Employees</a>
         <a href="#" class="list-group-item list-group-item-action" style="background-color:#012111;color: white;">Students</a>
         <a href="#" class="list-group-item list-group-item-action" style="background-color:#012111;color: white;">Parents</a>
@@ -114,9 +161,22 @@
               </div>
             </div>
           </div>
+          <div class="row">
+            <div class="col-sm-4">
+              <div id="studentAttendance"></div>
+            </div>
+
+            <div class="col-sm-4">
+              <div id="staffAttendance"></div>
+            </div>
+
+            </div>
+
 
        
       </div>
+
+      
     </div>
     <!-- /#page-content-wrapper -->
   <!-- <div id ="dashboard">
@@ -142,6 +202,19 @@
       e.preventDefault();
       $("#wrapper").toggleClass("toggled");
     });
+  </script>
+
+<script>
+  // Add active class to the current button (highlight it)
+  var header = document.getElementById("myDIV");
+  var btns = header.getElementsByClassName("list-group-item-action");
+  for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function() {
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+    });
+  }
   </script>
 
 </body>
