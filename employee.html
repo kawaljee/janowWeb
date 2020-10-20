@@ -127,11 +127,100 @@ function drawChart() {
       </nav>
 
       <div class="container-fluid" id ="dashboard">
-        
-          <div style="margin-top: 15px; font-size: 20px;">Admin Dashboard</div>
+        <div class="row">
+          <div class="col-sm-9">
+            <div style="margin-top: 15px; font-size: 20px;">Employee</div>
+          </div>
+          <div class="col-sm-3" style="margin-top: 15px; font-size: 20px;">
+           
+            <!-- Button trigger modal -->
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#staticBackdrop">
+  Create New
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Register Employee</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          
+          <!-- <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" placeholder="First name">
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" placeholder="Last name">
+            </div>
+          </div> -->
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="fname">First Name</label>
+              <input type="text" class="form-control" id="fname">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="lname">Last Name</label>
+              <input type="text" class="form-control" id="lname">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">Email</label>
+              <input type="email" class="form-control" id="inputEmail4">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="pno">Phone no.</label>
+              <input type="tel" class="form-control" id="pno" pattern="[0-9]{3}-[0-9]{2}-[0-9]{3}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="inputAddress">Address</label>
+            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
+          </div>
+          <div class="form-group">
+            <label for="inputAddress2">Address 2</label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputCity">City</label>
+              <input type="text" class="form-control" id="inputCity">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="inputState">State</label>
+              <select id="inputState" class="form-control">
+                <option selected>Choose...</option>
+                <option>...</option>
+              </select>
+            </div>
+            <div class="form-group col-md-2">
+              <label for="inputZip">Zip</label>
+              <input type="text" class="form-control" id="inputZip">
+            </div>
+          </div>
+          
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+          </div>
+        </div>
           <hr style="width: 1500px;">
 
-          <div class="row">
+        
+          <!-- <div class="row">
             <div class="col-sm-3">
               <div class="card" style="width: 250px; height: 136px;background-color: #327FC2; margin-bottom: 10px;">
                 <div class="card-body">
@@ -160,8 +249,8 @@ function drawChart() {
                 </div>
               </div>
             </div>
-          </div>
-          <div class="row">
+          </div> -->
+          <!-- <div class="row">
             <div class="col-sm-4">
               <div id="studentAttendance"></div>
             </div>
@@ -170,7 +259,45 @@ function drawChart() {
               <div id="staffAttendance"></div>
             </div>
 
-            </div>
+            </div> -->
+            <div class="table-responsive">
+            <table class="table table-hover">
+              <thead>
+                <tr>
+                  <th scope="col">ECode</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Gender</th>
+                  <th scope="col">Phone Name</th>
+                  <th scope="col">Department</th>
+
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">E001</th>
+                  <td>Mark</td>
+                  <td>Male</td>
+                  <td>6656544646</td>
+                  <td>Science</td>
+
+                </tr>
+                <tr>
+                  <th scope="row">E002</th>
+                  <td>Kavita</td>
+                  <td>Female</td>
+                  <td>6656544646</td>
+                  <td>Maths</td>
+                </tr>
+                <tr>
+                  <th scope="row">E003</th>
+                  <td>Chethan</td>
+                  <td>Male</td>
+                  <td>6656544646</td>
+                  <td>Computers</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
 
        
